@@ -1,0 +1,15 @@
+{
+    "name": "joan/katagamer",
+    "description": "kata game",
+    "type": "project",
+    "require": {
+        "phpunit/phpunit": "^8.5"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "joan.prat.llabres",
+            "email": "joan.prat.llabres@upcnet.es"
+        }
+    ]
+}
