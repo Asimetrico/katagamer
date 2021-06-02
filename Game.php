@@ -1,14 +1,12 @@
 <?php
 
-    namespace Game;
-
     function echoln ($string)
     {
         echo $string . "\n";
     }
 
 
-    public class Game
+     class Game
     {
         var $players;
         var $places;

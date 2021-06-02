@@ -1,8 +1,8 @@
 <?php
 
+include '../Game.php';
 
-    use Game\Game;
-    use PHPUnit\Framework\TestCase;
+ use PHPUnit\Framework\TestCase;
 
     class GameTest extends TestCase
     {
@@ -15,6 +15,42 @@
 
         public function test_createRockQuestion_shouldDefinedText() {
 
-            $this->assert($this->game->createRockQuestion(1),'Rock Question  1');
+            $this->assertEquals($this->game->createRockQuestion(1),'Rock Question 1');
         }
+
+        public function test_emptyNumberPlayers_shouldReturn0() {
+            $this->game->players = [];
+            $this->assertEquals($this->game->howManyPlayers(),0);
+        }
+
+        public function test_add1Players_shouldReturn1() {
+            $this->game->players = [];
+            $this->game->add('pepa');
+            $this->assertEquals($this->game->howManyPlayers(),1);
+        }
+        public function test_add2Players_shouldReturn1() {
+            $this->game->players = [];
+            $this->game->add('pepa1');
+            $this->game->add('pepa2');
+            $this->assertEquals($this->game->howManyPlayers(),2);
+        }
+
+        public function test_emptyPlayersnotplayable_shouldReturnFalse() {
+            $this->game->players = [];
+            $this->assertFalse($this->game->isPlayable());
+        }
+        public function test_1Playersnotplayable_shouldReturnFalse() {
+            $this->game->players = [];
+            $this->game->add('pepa1');
+            $this->assertFalse($this->game->isPlayable());
+        }
+
+        public function test_2Playersnotplayable_shouldReturnTrue() {
+            $this->game->players = [];
+            $this->game->add('pepa1');
+            $this->game->add('pepa2');
+            $this->assertTrue($this->game->isPlayable());
+        }
+
+
     }
